@@ -61,6 +61,19 @@
 ```
 ---
 
+Если наоборот, не надо отображать в Outlook (так как он не воспринимает любые другие способы скрыть конент `display: none; opacity: 0; max-height: 0; overflow: hidden;` и т.д.), то поможет такая конструкция (обёртка условий и `mso-hide: all`):
+```html
+<!--[if !mso]><!-->
+    <table cellpadding="0" cellspacing="0" style="mso-hide: all;">
+      <tbody>
+        <tr>
+          <td style="padding: 10px;"></td>
+        </tr>
+      </tbody>
+    </table>
+<!--<![endif]-->
+```
+
 Если нужно прописать стили специально для Outlook и конкретной его версии, код стилей можно поместить в такую конструкцию
 ```html
 <!--[if gt mso 11]>
